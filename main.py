@@ -27,10 +27,10 @@ def main(config):
     # decay_ratio = random.random()*0.8
     # decay_epoch = int(epoch*decay_ratio)
 
-    config.augmentation_prob = augmentation_prob
-    config.num_epochs = epoch
-    config.lr = lr
-    config.num_epochs_decay = decay_epoch
+    # config.augmentation_prob = augmentation_prob
+    # config.num_epochs = epoch
+    # config.lr = lr
+    # config.num_epochs_decay = decay_epoch
 
     print(config)
         
