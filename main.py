@@ -7,8 +7,8 @@ import random
 
 def main(config):
     cudnn.benchmark = True
-    if config.model_type not in ['U_Net','R2U_Net','AttU_Net','R2AttU_Net']:
-        print('ERROR!! model_type should be selected in U_Net/R2U_Net/AttU_Net/R2AttU_Net')
+    if config.model_type not in ['U_Net','R2U_Net']:
+        print('ERROR!! model_type should be selected in U_Net/R2U_Net')
         print('Your input for model_type was %s'%config.model_type)
         return
 
@@ -88,7 +88,7 @@ if __name__ == '__main__':
 
     # misc
     parser.add_argument('--mode', type=str, default='train')
-    parser.add_argument('--model_type', type=str, default='U_Net', help='U_Net/R2U_Net/AttU_Net/R2AttU_Net')
+    parser.add_argument('--model_type', type=str, default='U_Net', help='U_Net/R2U_Net')
     parser.add_argument('--model_path', type=str, default='./models')
     parser.add_argument('--train_path', type=str, default='./dataset/train/')
     parser.add_argument('--valid_path', type=str, default='./dataset/valid/')
