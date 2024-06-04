@@ -105,7 +105,7 @@ class Solver(object):
 
 		#====================================== Training ===========================================#
 		#===========================================================================================#
-		
+		best_unet = None
 		unet_path = os.path.join(self.model_path, '%s-%d-%.4f-%d-%.4f.pkl' %(self.model_type,self.num_epochs,self.lr,self.num_epochs_decay,self.augmentation_prob))
 
 		# U-Net Train
