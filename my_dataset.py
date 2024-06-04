@@ -124,7 +124,7 @@ if __name__ == '__main__':
     parser.add_argument('--test_ratio', type=float, default=0.2)
 
     # data path
-    parser.add_argument('--origin_data_path', type=str, default='/kaggle/input/chasedb1')
+    parser.add_argument('--origin_data_path', type=str, default='/kaggle/working/CHASEDB1')
     parser.add_argument('--origin_GT_path', type=str, default='/kaggle/working/CHASEDB1_GT')
     
     parser.add_argument('--train_path', type=str, default='./dataset/train/')
