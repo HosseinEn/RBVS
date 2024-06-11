@@ -28,6 +28,9 @@ def get_metrics(SR, GT, threshold=0.5):
     SR = SR.view(-1)
     GT = GT.view(-1)
 
+    SR = SR.int()
+    GT = GT.int()
+
     accuracy = BinaryAccuracy(device='cuda')
     precision = BinaryPrecision(device='cuda')
     recall = BinaryRecall(device='cuda')
