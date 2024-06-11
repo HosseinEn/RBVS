@@ -53,7 +53,7 @@ class Solver(object):
 		self.build_model()
 
 	def build_model(self):
-		"""Build generator and discriminator."""
+		'''Build generator and discriminator.'''
 		if self.model_type =='U_Net':
 			self.unet = U_Net(img_ch=3,output_ch=1)
 		elif self.model_type =='R2U_Net':
@@ -66,7 +66,7 @@ class Solver(object):
 		# self.print_network(self.unet, self.model_type)
 
 	def print_network(self, model, name):
-		"""Print out the network information."""
+		'''Print out the network information.'''
 		num_params = 0
 		for p in model.parameters():
 			num_params += p.numel()
@@ -75,7 +75,7 @@ class Solver(object):
 		print("The number of parameters: {}".format(num_params))
 
 	def to_data(self, x):
-		"""Convert variable to tensor."""
+		'''Convert variable to tensor.'''
 		if torch.cuda.is_available():
 			x = x.cpu()
 		return x.data
@@ -85,7 +85,7 @@ class Solver(object):
 			param_group['lr'] = lr
 
 	def reset_grad(self):
-		"""Zero the gradient buffers."""
+		'''Zero the gradient buffers.'''
 		self.unet.zero_grad()
 
 	def compute_accuracy(self,SR,GT):
@@ -101,7 +101,7 @@ class Solver(object):
 
 
 	def train(self):
-		"""Train encoder, generator and discriminator."""
+		'''Train encoder, generator and discriminator.'''
 
 		#====================================== Training ===========================================#
 		#===========================================================================================#
@@ -168,6 +168,8 @@ class Solver(object):
 				F1 = F1/length
 				JS = JS/length
 				DC = DC/length
+                
+				print(acc, SE, SP, PC, F1, JS, DC)
 
 				# Print the log info
 				print('Epoch [%d/%d], Loss: %.4f, \n[Training] Acc: %.4f, SE: %.4f, SP: %.4f, PC: %.4f, F1: %.4f, JS: %.4f, DC: %.4f' % (
