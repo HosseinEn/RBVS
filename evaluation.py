@@ -1,5 +1,5 @@
 import torch
-from torcheval.metrics import BinaryAccuracy, BinaryPrecision, BinaryRecall, BinaryF1Score, BinaryDiceCoefficient
+from torcheval.metrics import BinaryAccuracy, BinaryPrecision, BinaryRecall, BinaryF1Score
 
 def jaccard_index(SR, GT, threshold=0.5):
     SR = (SR > threshold).float()
@@ -11,6 +11,15 @@ def jaccard_index(SR, GT, threshold=0.5):
     
     return jaccard.item()
 
+def dice_coefficient(SR, GT, threshold=0.5):
+    SR = (SR > threshold).float()
+    GT = (GT == torch.max(GT)).float()
+    
+    intersection = torch.sum(SR * GT)
+    dice = (2 * intersection) / (torch.sum(SR) + torch.sum(GT) + 1e-6)
+    
+    return dice.item()
+
 def get_metrics(SR, GT, threshold=0.5):
     SR = (SR > threshold).float()
     GT = (GT == torch.max(GT)).float()
@@ -19,14 +28,12 @@ def get_metrics(SR, GT, threshold=0.5):
     precision = BinaryPrecision(device='cuda')
     recall = BinaryRecall(device='cuda')
     f1_score = BinaryF1Score(device='cuda')
-    dice = BinaryDiceCoefficient(device='cuda')
 
     # Update metrics with predictions and targets
     accuracy.update(SR, GT)
     precision.update(SR, GT)
     recall.update(SR, GT)
     f1_score.update(SR, GT)
-    dice.update(SR, GT)
 
     # Compute the metric values
     acc = accuracy.compute().item()
@@ -34,7 +41,7 @@ def get_metrics(SR, GT, threshold=0.5):
     sp = accuracy.compute().item()  # Specificity
     pc = precision.compute().item()
     f1 = f1_score.compute().item()
-    dc = dice.compute().item()
     js = jaccard_index(SR, GT)  # Jaccard Index
+    dc = dice_coefficient(SR, GT)  # Dice Coefficient
 
     return acc, se, sp, pc, f1, js, dc
