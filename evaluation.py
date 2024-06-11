@@ -19,8 +19,8 @@ def get_sensitivity(SR,GT,threshold=0.5):
 
     # TP : True Positive
     # FN : False Negative
-    TP = ((SR==1)+(GT==1))==2
-    FN = ((SR==0)+(GT==1))==2
+    TP = ((SR==1) & (GT==1))
+    FN = ((SR==0) & (GT==1))
 
 
     SE = float(torch.sum(TP))/(float(torch.sum(TP+FN)) + 1e-6)     
