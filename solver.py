@@ -152,13 +152,17 @@ class Solver(object):
 					loss.backward()
 					self.optimizer.step()
 
-					acc += get_accuracy(SR,GT)
-					SE += get_sensitivity(SR,GT)
-					SP += get_specificity(SR,GT)
-					PC += get_precision(SR,GT)
-					F1 += get_F1(SR,GT)
-					JS += get_JS(SR,GT)
-					DC += get_DC(SR,GT)
+					
+					acc_tmp, se_tmp, sp_tmp, pc_tmp, f1_tmp, js_tmp, dc_tmp = get_metrics(SR,GT)
+
+					acc += acc_tmp
+					SE += se_tmp
+					SP += sp_tmp
+					PC += pc_tmp
+					F1 += f1_tmp
+					JS += js_tmp
+					DC += dc_tmp
+					
 					length += images.size(0)
 
 				acc = acc/length
@@ -169,7 +173,6 @@ class Solver(object):
 				JS = JS/length
 				DC = DC/length
                 
-				print(acc, SE, SP, PC, F1, JS, DC)
 
 				# Print the log info
 				print('Epoch [%d/%d], Loss: %.4f, \n[Training] Acc: %.4f, SE: %.4f, SP: %.4f, PC: %.4f, F1: %.4f, JS: %.4f, DC: %.4f' % (
@@ -204,13 +207,17 @@ class Solver(object):
 					images = images.to(self.device)
 					GT = GT.to(self.device)
 					SR = F.sigmoid(self.unet(images))
-					acc += get_accuracy(SR,GT)
-					SE += get_sensitivity(SR,GT)
-					SP += get_specificity(SR,GT)
-					PC += get_precision(SR,GT)
-					F1 += get_F1(SR,GT)
-					JS += get_JS(SR,GT)
-					DC += get_DC(SR,GT)
+
+					acc_tmp, se_tmp, sp_tmp, pc_tmp, f1_tmp, js_tmp, dc_tmp = get_metrics(SR,GT)
+
+					acc += acc_tmp
+					SE += se_tmp
+					SP += sp_tmp
+					PC += pc_tmp
+					F1 += f1_tmp
+					JS += js_tmp
+					DC += dc_tmp
+					
 						
 					length += images.size(0)
 					
@@ -269,13 +276,17 @@ class Solver(object):
 				images = images.to(self.device)
 				GT = GT.to(self.device)
 				SR = F.sigmoid(self.unet(images))
-				acc += get_accuracy(SR,GT)
-				SE += get_sensitivity(SR,GT)
-				SP += get_specificity(SR,GT)
-				PC += get_precision(SR,GT)
-				F1 += get_F1(SR,GT)
-				JS += get_JS(SR,GT)
-				DC += get_DC(SR,GT)
+
+				acc_tmp, se_tmp, sp_tmp, pc_tmp, f1_tmp, js_tmp, dc_tmp = get_metrics(SR,GT)
+
+				acc += acc_tmp
+				SE += se_tmp
+				SP += sp_tmp
+				PC += pc_tmp
+				F1 += f1_tmp
+				JS += js_tmp
+				DC += dc_tmp
+					
 						
 				length += images.size(0)
 					
