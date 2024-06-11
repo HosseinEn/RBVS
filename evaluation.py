@@ -24,6 +24,10 @@ def get_metrics(SR, GT, threshold=0.5):
     SR = (SR > threshold).float()
     GT = (GT == torch.max(GT)).float()
 
+    # Reshape the tensors to be one-dimensional
+    SR = SR.view(-1)
+    GT = GT.view(-1)
+
     accuracy = BinaryAccuracy(device='cuda')
     precision = BinaryPrecision(device='cuda')
     recall = BinaryRecall(device='cuda')
