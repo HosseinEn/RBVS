@@ -25,7 +25,10 @@ def get_sensitivity(SR,GT,threshold=0.5):
 
     SE = float(torch.sum(TP))/(float(torch.sum(TP+FN)) + 1e-6)     
     print("Print in evaluation:", TP, FN, SR, GT)
+    print("Print in evaluation:", TP, FN, SR, GT)
     print("SE:", SE)
+    print("sum TP:", torch.sum(TP))
+    print("sum FN:", torch.sum(FN))
     
     return SE
 
