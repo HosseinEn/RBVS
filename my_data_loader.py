@@ -81,10 +81,13 @@ class ImageFolder(data.Dataset):
 			T.ToTensor(),
 			T.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 		])
-
-
 		image = final_transform(image)
-		GT = final_transform(GT)
+
+		final_transform_GT = T.Compose([
+			T.Resize((int(256 * aspect_ratio) - int(256 * aspect_ratio) % 16, 256)),
+			T.ToTensor(),
+		])
+		GT = final_transform_GT(GT)
 
 		return image, GT
 
