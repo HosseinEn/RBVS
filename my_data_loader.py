@@ -1,8 +1,8 @@
 import os
 import random
 from torch.utils import data
-from torchvision import transform_lists as T
-from torchvision.transform_lists import functional as F
+from torchvision import transforms as T
+from torchvision.transforms import functional as F
 from PIL import Image
 
 class ImageFolder(data.Dataset):
