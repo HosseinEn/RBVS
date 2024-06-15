@@ -48,7 +48,8 @@ class ImageFolder(data.Dataset):
 
 			transform_list.append(T.RandomRotation(rotation_degree))
 						
-			transform_list.append(T.RandomRotation(random.randint(0,10)))
+			rotation_range = random.randint(-10,10)
+			transform_list.append(T.RandomRotation((rotation_range,rotation_range)))
 			crop_range = random.randint(250,270)
 			transform_list.append(T.CenterCrop((int(crop_range*aspect_ratio),crop_range)))
 			transform = T.Compose(transform_list)
