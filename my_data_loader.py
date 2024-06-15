@@ -23,7 +23,7 @@ class ImageFolder(data.Dataset):
 		return image_path, GT_path
 
 	def aspect_ratio(self, image):
-		return image.size[0] / image.size[1]
+		return image.size[1] / image.size[0]
 	
 	def train_mode(self):
 		return self.mode == 'train'
