@@ -1,4 +1,4 @@
-### pytorch Implementation of U-Net, R2U-Net
+### PyTorch Implementation of U-Net, R2U-Net
 **U-Net: Convolutional Networks for Biomedical Image Segmentation**
 https://arxiv.org/abs/1505.04597
 
@@ -15,5 +15,4 @@ https://arxiv.org/abs/1802.06955
 
 
 ## Evaluation
-I tested the R2U-Net model with [CHASEDB1](https://staffnet.kingston.ac.uk/~ku15565/CHASE_DB1/assets/) dataset. The dataset was split into three subsets, training set, validation set, and test set, which the proportion is 60%, 20% and 20% of the whole dataset, respectively.
-
+I tested the R2U-Net model with [CHASEDB1](https://staffnet.kingston.ac.uk/~ku15565/CHASE_DB1/assets/) and [DRIVE](https://www.kaggle.com/datasets/andrewmvd/drive-digital-retinal-images-for-vessel-extraction) dataset. The dataset was split into three subsets: training set, validation set, and test set, which the proportion is 60%, 20% and 20% of the whole dataset, respectively.
