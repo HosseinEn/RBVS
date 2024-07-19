@@ -5,7 +5,8 @@ https://arxiv.org/abs/1505.04597
 **Recurrent Residual Convolutional Neural Network based on U-Net (R2U-Net) for Medical Image Segmentation**
 https://arxiv.org/abs/1802.06955
 
-
+# Results
+You can see the results in all_in_one_rbvs.ipynb
 
 ## U-Net
 ![image](https://github.com/HosseinEn/computer-vision-RBVS/assets/83599557/6b9876a3-5d41-41ae-a179-7f4a6a0f7656)
