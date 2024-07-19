@@ -6,7 +6,7 @@ https://arxiv.org/abs/1505.04597
 https://arxiv.org/abs/1802.06955
 
 # Results
-You can see the stable version and finals results in Google Colab:
+You can see the stable version and final results in Google Colab:
 https://colab.research.google.com/drive/1C16K0BN5W6dATF1ubeibTl8vXgb6MDFj?usp=sharing
 
 ![image](https://github.com/user-attachments/assets/00ff0cd4-c5d7-4e81-a56a-827621354657)
